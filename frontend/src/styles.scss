@@ -4,3 +4,43 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: "Jura", "Helvetica Neue", sans-serif; }
+
+:root {
+    --color-primary: #00ff55b7;
+    --color-secondary: #181818;
+}
+
+/* ANGULAR MATERIAL */
+.mat-form-field-appearance-outline 
+.mat-form-field-outline { color: rgba(255, 255, 255, 0.64); }
+
+.mat-form-field-appearance-outline.mat-focused 
+.mat-form-field-outline-thick { color: var(--color-primary); }
+
+.mat-form-field-label { color: rgba(255, 254, 254, 0.6); }
+
+.mat-form-field.mat-focused 
+.mat-form-field-label { color: var(--color-primary); }
+
+.mat-form-field-wrapper { padding-bottom: 0em; }
+
+/* BOOTSTRAP */
+.btn-primary {
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    font-size: 1.25rem;
+    font-weight: bold;
+    transition: all 200ms ease;
+    &:hover {
+        background: #00000000;
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
+        transition: all 200ms ease;
+    }
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white !important;
+    opacity: 0.5; /* Firefox */
+}

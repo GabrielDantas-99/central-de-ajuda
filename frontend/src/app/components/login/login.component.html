@@ -1,0 +1,36 @@
+<section class="d-flex justify-content-center align-items-center">
+    <span *ngFor="let s of spans"></span>
+    <div class="signin rounded-3 d-flex justify-content-center align-items-center">
+        <div class="content flex-column w-100 p-4 d-flex justify-content-center align-items-center">
+            <h2 class="text-white">Sign In</h2>
+            <div class="form w-100 d-flex flex-column">
+                <mat-form-field appearance="outline">
+                    <mat-label>E-mail</mat-label>
+                    <input 
+                    class="text-white" 
+                    required 
+                    matInput 
+                    placeholder="Ex. fulano@mail.com"
+                    >
+                    <mat-icon class="text-white" matSuffix>email</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Senha</mat-label>
+                    <input 
+                        class="text-white" 
+                        required 
+                        matInput
+                    >
+                    <mat-icon class="text-white" matSuffix>password</mat-icon>
+                </mat-form-field>
+                <button 
+                    class="btn btn-primary mat-elevation-z4" 
+                    
+                    color="primary"
+                >
+                    Login
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
