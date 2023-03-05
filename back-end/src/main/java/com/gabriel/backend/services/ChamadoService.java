@@ -43,6 +43,13 @@ public class ChamadoService {
         return chamadoRepository.save(newChamado(obj));
     }
 
+    public Chamado chamadoUpdate(Integer id, @Valid ChamadoDTO objDTO) {
+		objDTO.setId(id);
+		Chamado oldObj = findById(id);
+		oldObj = newChamado(objDTO);
+		return chamadoRepository.save(oldObj);
+	}
+
     private Chamado newChamado(ChamadoDTO obj) {
 		Tecnico tecnico = tecnicoService.findById(obj.getTecnico());
 		Cliente cliente = clienteService.findById(obj.getCliente());
