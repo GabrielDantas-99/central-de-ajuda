@@ -12,10 +12,13 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.bgCreate();
+  }
+
+  bgCreate(): void {
     for (let i = 0; i < 220; i++) {
       this.spans.push('span');
     }
-    console.log(this.spans);
   }
 
 }
