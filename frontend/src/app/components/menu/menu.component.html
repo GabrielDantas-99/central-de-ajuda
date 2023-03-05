@@ -1,1 +1,47 @@
-<p>menu works!</p>
+<mat-toolbar color="primary" class="bg-secondary">
+    <button (click)="drawer.toggle()" mat-icon-button class="icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span class="ml-2">Help<span class="font-weight-bold">DESK</span></span>
+    <span class="spacer"></span>
+    <button (click)="logout()" mat-icon-button class="icon favorite-icon">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
+<mat-drawer-container class="mat-container bg-gray" autosize>
+    <mat-drawer class="bg-secondary" #drawer mode="side" opened>
+        <mat-nav-list>
+            <a (click)="setActive('home')" id="home" class="menuItem text-white" routerLink="home" mat-list-item>
+                <i class='bx bx-pie-chart-alt-2'></i>
+                <span class="ml-3">Home</span>
+            </a>
+            <mat-divider></mat-divider>
+            <a (click)="setActive('tecnicos')" id="tecnicos" class="menuItem text-white" routerLink="tecnicos"
+                mat-list-item>
+                <i class='bx bx-category-alt'></i>
+                <span class="ml-3">Técnicos</span>
+            </a>
+            <mat-divider></mat-divider>
+            <a (click)="setActive('clientes')" id="clientes" class="menuItem text-white" routerLink="clientes"
+                mat-list-item>
+                <i class='bx bx-shopping-bag'></i>
+                <span class="ml-3">Clientes</span>
+            </a>
+            <mat-divider></mat-divider>
+            <a (click)="setActive('github')" id="github" class="menuItem text-white" routerLink="github" mat-list-item>
+                <i class='bx bx-cart-alt'></i>
+                <span class="ml-3">GitHub</span>
+            </a>
+            <mat-divider></mat-divider>
+            <a (click)="setActive('configuracoes')" id="configuracoes" class="menuItem text-white"
+                routerLink="configuracoes" mat-list-item>
+                <i class='bx bx-user'></i>
+                <span class="ml-3">Configurações</span>
+            </a>
+            <mat-divider></mat-divider>
+        </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
