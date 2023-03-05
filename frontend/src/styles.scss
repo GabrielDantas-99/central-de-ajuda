@@ -8,9 +8,14 @@ body { margin: 0; font-family: "Jura", "Helvetica Neue", sans-serif; }
 :root {
     --color-primary: #00ff55b7;
     --color-secondary: #181818;
+
+    --bg-primary: #2f2f2f;
 }
 
-button:focus { outline: none; }   
+button:focus { outline: none; }
+
+table thead tr th,
+table tbody tr td { color: white !important;text-align: center !important; }
 
 /* ANGULAR MATERIAL */
 .mat-form-field-appearance-outline 
@@ -27,6 +32,25 @@ button:focus { outline: none; }
 .mat-form-field-wrapper { padding-bottom: 0em; }
 
 .mat-list-base { padding-top: 0px !important; }
+
+.mat-form-field-appearance-outline 
+.mat-form-field-infix { padding: .6em 0 .6em 0; }
+
+.mat-form-field-label-wrapper {
+    top: -1.2em;
+    padding-top: .84375em;
+}
+
+.mat-table { background: var(--bg-primary) !important; }
+.mat-paginator { background: var(--bg-primary); }
+.mat-paginator, .mat-paginator-page-size .mat-select-trigger {
+    color: rgba(255, 255, 255, 0.54);
+}
+.mat-select-value-text { color: white !important; }
+.mat-select-arrow { color: rgba(255, 255, 255, 1); }
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
 
 /* BOOTSTRAP */
 .btn-primary {
@@ -53,7 +77,8 @@ button:focus { outline: none; }
     }
 }
 
-.bg-secondary { background-color: #2f2f2f !important; }
+.bg-primary { background-color: var(--color-primary) !important; }
+.bg-secondary { background-color: var(--bg-primary) !important; }
 .bg-gray { background-color: #3a3a3a !important; }
 
 

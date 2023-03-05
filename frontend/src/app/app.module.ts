@@ -18,6 +18,9 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
+import { TecnicosListComponent } from './components/tecnicos/tecnicos-list/tecnicos-list.component';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { CustomPaginator } from './shared/material/CustomPaginatorConfiguration';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     LoginComponent,
     HomeComponent,
     MenuComponent,
+    TecnicosListComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,10 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
       progressBar: true
     }),
   ],
-  providers: [AuthInterceptorProvider],
+  providers: [
+    AuthInterceptorProvider,
+    { provide: MatPaginatorIntl, useValue: CustomPaginator() }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
