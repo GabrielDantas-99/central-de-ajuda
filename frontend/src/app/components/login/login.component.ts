@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Credenciais } from 'src/app/models/Credenciais.model';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
 
   constructor(
+    private authService: AuthService,
+    private router: Router,
     private toast: ToastrService
   ) { }
 
@@ -29,7 +33,12 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.toast.success('Login efetuado com sucesso!');
+    this.authService.authenticate(this.credenciais).subscribe(response => {
+      this.authService.successfulLogin(response.headers.get('Authorization').substring(7));
+      this.router.navigate(['']);
+    }, () => {
+      this.toast.error('Usuário e/ou senha inválidos!');
+    });
   }
 
   validationFields(): boolean {
