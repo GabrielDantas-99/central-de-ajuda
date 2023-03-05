@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+// Modulo para requisições HTTP
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +18,9 @@ import { MaterialModule } from './shared/material/material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     // Modulo do Angular Material
-    MaterialModule
+    MaterialModule,
+    // Requisições http
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
