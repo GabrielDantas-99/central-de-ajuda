@@ -21,6 +21,7 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { TecnicosListComponent } from './components/tecnicos/tecnicos-list/tecnicos-list.component';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { CustomPaginator } from './shared/material/CustomPaginatorConfiguration';
+import { TecnicoCreateComponent } from './components/tecnicos/tecnico-create/tecnico-create.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CustomPaginator } from './shared/material/CustomPaginatorConfiguration'
     HomeComponent,
     MenuComponent,
     TecnicosListComponent,
+    TecnicoCreateComponent,
   ],
   imports: [
     BrowserModule,

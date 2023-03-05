@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
   activeNav: string;
 
   ngOnInit(): void {
-    this.router.navigate(['tecnicos']);
+    this.router.navigate(['tecnicos/create']);
   }
 
   logout() {

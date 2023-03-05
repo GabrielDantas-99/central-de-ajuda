@@ -2,6 +2,18 @@
 @import '../node_modules/ngx-toastr/toastr.css';
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
 
+@import '@angular/material/theming';
+
+@include mat-core();
+
+$custom-app-primary: mat-palette($mat-green, A400);
+$custom-app-secondary: mat-palette($mat-blue-grey, 900);
+$custom-app-warn: mat-palette($mat-red);
+
+$custom-theme: mat-dark-theme($custom-app-primary, $custom-app-secondary, $custom-app-warn);
+
+@include angular-material-theme($custom-theme);
+
 html, body { height: 100%; }
 body { margin: 0; font-family: "Jura", "Helvetica Neue", sans-serif; }
 
@@ -13,6 +25,7 @@ body { margin: 0; font-family: "Jura", "Helvetica Neue", sans-serif; }
 }
 
 button:focus { outline: none; }
+input[type="checkbox"] { background: white !important; }
 
 table thead tr th,
 table tbody tr td { color: white !important;text-align: center !important; }
@@ -53,6 +66,8 @@ table tbody tr td { color: white !important;text-align: center !important; }
   }
 
 /* BOOTSTRAP */
+.text-primary { color: var(--color-primary) !important; }
+
 .btn-primary {
     background: var(--color-primary);
     border: 1px solid var(--color-primary);
@@ -63,6 +78,19 @@ table tbody tr td { color: white !important;text-align: center !important; }
         background: #00000000;
         border: 1px solid var(--color-primary);
         color: var(--color-primary);
+        transition: all 200ms ease;
+    }
+}
+
+.btn-secondary-outline {
+    background: #00000000;
+    border: 1px solid var(--color-secondary);
+    font-size: 1.25rem;
+    font-weight: bold;
+    transition: all 200ms ease;
+    &:hover {
+        background: var(--color-secondary);
+        color: white;
         transition: all 200ms ease;
     }
 }
