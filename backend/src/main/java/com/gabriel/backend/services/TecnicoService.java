@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.gabriel.backend.domain.Pessoa;
@@ -26,6 +27,9 @@ public class TecnicoService {
 	@Autowired
 	private PessoaRepository pessoaRepository;
 
+	@Autowired
+	private BCryptPasswordEncoder encoder;
+
     public List<Tecnico> findAll() {
 		return repository.findAll();
 	}
@@ -37,7 +41,7 @@ public class TecnicoService {
 
 	public Tecnico tecnicoCreate(TecnicoDTO objDTO) {
 		objDTO.setId(null);
-		objDTO.setSenha(objDTO.getSenha());
+		objDTO.setSenha(encoder.encode(objDTO.getSenha()));
 		validaPorCpfEEmail(objDTO);
 		Tecnico newObj = new Tecnico(objDTO);
 		return repository.save(newObj);
@@ -46,9 +50,8 @@ public class TecnicoService {
 	public Tecnico tecnicoUpdate(Integer id, @Valid TecnicoDTO objDTO) {
 		objDTO.setId(id);
 		Tecnico oldObj = findById(id);
-		
 		if(!objDTO.getSenha().equals(oldObj.getSenha())) {
-			objDTO.setSenha(objDTO.getSenha());
+			objDTO.setSenha(encoder.encode(objDTO.getSenha()));
 		}
 		validaPorCpfEEmail(objDTO);
 		return repository.save(new Tecnico(objDTO));
@@ -67,7 +70,6 @@ public class TecnicoService {
 		if (obj.isPresent() && !Objects.equals(obj.get().getId(), objDTO.getId())) {
 			throw new DataIntegrityViolationException("CPF já cadastrado no sistema!");
 		}
-
 		obj = pessoaRepository.findByEmail(objDTO.getEmail());
 		if (obj.isPresent() && !Objects.equals(obj.get().getId(), objDTO.getId())) {
 			throw new DataIntegrityViolationException("E-mail já cadastrado no sistema!");
