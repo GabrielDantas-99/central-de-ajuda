@@ -23,6 +23,7 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 import { CustomPaginator } from './shared/material/CustomPaginatorConfiguration';
 import { TecnicoCreateComponent } from './components/tecnicos/tecnico-create/tecnico-create.component';
 import { TecnicoUpdateComponent } from './components/tecnicos/tecnico-update/tecnico-update.component';
+import { TecnicoDeleteComponent } from './components/tecnicos/tecnico-delete/tecnico-delete.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { TecnicoUpdateComponent } from './components/tecnicos/tecnico-update/tec
     TecnicosListComponent,
     TecnicoCreateComponent,
     TecnicoUpdateComponent,
+    TecnicoDeleteComponent,
   ],
   imports: [
     BrowserModule,
