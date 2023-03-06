@@ -8,15 +8,22 @@ import { Tecnico } from '../models/Tecnico.model';
   providedIn: 'root'
 })
 export class TecnicoService {
-  
   constructor(private http: HttpClient) { }
+  
+  findById(id: any): Observable<Tecnico> {
+    return this.http.get<Tecnico>(`${API.local}/tecnicos/${id}`);
+  }
   
   findAll(): Observable<Tecnico[]> {
     return this.http.get<Tecnico[]>(`${API.local}/tecnicos`);
   }
-
+  
   tecnicoCreate(tecnico: Tecnico): Observable<Tecnico> {
     return this.http.post<Tecnico>(`${API.local}/tecnicos`, tecnico);
+  }
+  
+  tecnicoUpdate(tecnico: Tecnico) {
+    return this.http.put<Tecnico>(`${API.local}/tecnicos/${tecnico.id}`, tecnico);
   }
   
 }
